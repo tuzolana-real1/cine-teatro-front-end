@@ -1,0 +1,9 @@
+Destaques da estrutura
+- components/ → onde ficam os blocos reutilizáveis (Input, Button, CardObra, ModalUpload, Header, Footer).
+- pages/ → cada página principal do site (Home, Login, Cadastro, Dashboard, Publicar Obra).
+- context/ → gestão de sessão e autenticação (AuthContext).
+- services/ → configuração do axios (api.js) para chamadas ao backend.
+- App.jsx → define o roteamento com React Router.
+- main.jsx → ponto de entrada da aplicação.
+- index.css → importa Tailwind e estilos globais.
+
