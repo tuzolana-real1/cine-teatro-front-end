@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import Input from "../components/Input";
-import TextArea from "../components/TextArea";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
-function Cadastro() {
+function CadastroComum() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
-  const [contacto, setContacto] = useState("");
-  const [descricao, setDescricao] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,13 +17,11 @@ function Cadastro() {
       email,
       senha,
       confirmarSenha,
-      contacto,
-      descricao,
     });
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#1e100f] text-white font-sans">
+    <div className="flex justify-center items-center min-h-screen bg-[#1e100f] text-white">
       <form
         onSubmit={handleSubmit}
         className="bg-[#1a1717] p-8 w-[450px] rounded-xl shadow-[10px_0_40px_#97171b21,-10px_0_40px_#97171b21]"
@@ -82,30 +77,11 @@ function Cadastro() {
           onChange={(e) => setConfirmarSenha(e.target.value)}
         />
 
-        <Input
-          id="userNumber"
-          name="userNumber"
-          label="Contacto"
-          placeholder="(+244) XXX XXX XXX"
-          value={contacto}
-          onChange={(e) => setContacto(e.target.value)}
-        />
-
-        {/* TextArea reutilizável */}
-        <TextArea
-          id="descricao"
-          name="descricao"
-          label="Descrição"
-          placeholder="Descreva seu grupo teatral ou estúdio"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
-        />
-
         {/* Botão */}
-        <Button
+        <Button 
           valor="Cadastrar-se"
-          className="w-[90%] p-2.5 mt-2 mb-6 rounded-lg bg-red-600 text-white hover:bg-gradient-to-r hover:from-red-600 hover:to-yellow-400 cursor-pointer"
-        / >
+          className="w-[90%] p-2.5 mt-2 mb-6 rounded-lg bg-red-600 text-white hover:bg-gradient-to-r hover:from-red-600 hover:to-yellow-400"
+         />
 
         {/* Link */}
         <p className="text-center text-sm">
@@ -119,4 +95,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default CadastroComum;

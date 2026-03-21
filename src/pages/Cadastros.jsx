@@ -5,24 +5,28 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
 function Cadastro() {
+  const [tipo, setTipo] = useState("comum"); // padrão: comum
+
+  // estados comuns
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
-  const [contacto, setContacto] = useState("");
+
+  // estados extras para grupo
   const [descricao, setDescricao] = useState("");
+  const [contacto, setContacto] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log({
-      nome,
-      email,
-      senha,
-      confirmarSenha,
-      contacto,
-      descricao,
-    });
+    const dados =
+      tipo === "comum"
+        ? { nome, email, senha, confirmarSenha }
+        : { nome, email, senha, confirmarSenha, contacto, descricao };
+
+    console.log("Tipo de cadastro:", tipo);
+    console.log(dados);
   };
 
   return (
@@ -37,12 +41,32 @@ function Cadastro() {
         </h1>
 
         <h2 className="text-center text-xl mb-2">Criar nova conta</h2>
+        <p className="text-center text-sm mb-6">Junte-se à nossa comunidade</p>
 
-        <p className="text-center text-sm mb-6">
-          Junte-se à nossa comunidade
-        </p>
+        {/* Selector de tipo */}
+        <div className="flex justify-center mb-6 gap-2">
+          <button
+            type="button"
+            onClick={() => setTipo("comum")}
+            className={`px-4 py-2 rounded-lg ${
+              tipo === "comum" ? "bg-red-600" : "bg-gray-700 hover:bg-gray-600"
+            }`}
+          >
+            Utilizador
+          </button>
 
-        {/* Inputs reutilizáveis */}
+          <button
+            type="button"
+            onClick={() => setTipo("grupo")}
+            className={`px-4 py-2 rounded-lg ${
+              tipo === "grupo" ? "bg-red-600" : "bg-gray-700 hover:bg-gray-600"
+            }`}
+          >
+            Grupo/Estúdio
+          </button>
+        </div>
+
+        {/* Inputs comuns */}
         <Input
           id="username"
           name="username"
@@ -82,30 +106,31 @@ function Cadastro() {
           onChange={(e) => setConfirmarSenha(e.target.value)}
         />
 
-        <Input
-          id="userNumber"
-          name="userNumber"
-          label="Contacto"
-          placeholder="(+244) XXX XXX XXX"
-          value={contacto}
-          onChange={(e) => setContacto(e.target.value)}
-        />
+        {/* Campos extras apenas para grupo */}
+        {tipo === "grupo" && (
+          <>
+            <Input
+              id="userNumber"
+              name="userNumber"
+              label="Contacto"
+              placeholder="(+244) XXX XXX XXX"
+              value={contacto}
+              onChange={(e) => setContacto(e.target.value)}
+            />
 
-        {/* TextArea reutilizável */}
-        <TextArea
-          id="descricao"
-          name="descricao"
-          label="Descrição"
-          placeholder="Descreva seu grupo teatral ou estúdio"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
-        />
+            <TextArea
+              id="descricao"
+              name="descricao"
+              label="Descrição"
+              placeholder="Descreva seu grupo teatral ou estúdio"
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
+            />
+          </>
+        )}
 
-        {/* Botão */}
-        <Button
-          valor="Cadastrar-se"
-          className="w-[90%] p-2.5 mt-2 mb-6 rounded-lg bg-red-600 text-white hover:bg-gradient-to-r hover:from-red-600 hover:to-yellow-400 cursor-pointer"
-        / >
+        {/* Botão reutilizável */}
+        <Button valor="Criar conta" />
 
         {/* Link */}
         <p className="text-center text-sm">

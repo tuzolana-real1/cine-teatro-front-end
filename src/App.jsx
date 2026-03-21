@@ -1,12 +1,27 @@
 import './App.css'
+import Dashboard from './components/DashBoard'
+/*import Cadastro from './pages/Cadastro'
+import Login from './pages/Login'
+import Home from './pages/Home'
+import DashBoard from './pages/DashBoard'
+import PublicarObra from './pages/PublicarObra'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'*/
 function App() {
 
   return (
-     <div className="bg-black h-screen flex items-center justify-center">
-      <h1 className="text-red-500 text-6xl">
-        CineTeatro
-      </h1>
-    </div>
+    <>
+      {/*<BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/cadastro' element={<Cadastro/>} />
+          <Route path='/dashboard' element={<DashBoard/>} />
+          <Route path='/publicar-obra' element={<PublicarObra/>} />
+        </Routes>
+      </BrowserRouter>
+      */}
+     <Dashboard />
+    </>
   )
 }
 
