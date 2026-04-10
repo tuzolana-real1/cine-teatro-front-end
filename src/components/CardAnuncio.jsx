@@ -2,7 +2,7 @@ import React from "react";
 
 function CardAnuncio({ titulo, descricao, data, status, imagem }) {
   return (
-    <div className="relative w-80 md:w-96 rounded-xl overflow-hidden bg-black shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300">
+    <div className="relative w-80 md:w-96 rounded-xl overflow-hidden bg-black shadow-md hover:shadow-[2px_2px_10px_#afaf35,_-2px_-2px_10px_#afaf35] hover:shadow-xl hover:scale-105 transition-transform duration-300">
       {/* Status */}
       <p
         className={`absolute top-4 left-4 px-3 py-1 font-bold text-white rounded-md shadow ${

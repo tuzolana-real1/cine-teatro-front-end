@@ -4,7 +4,7 @@ import TextArea from "../components/TextArea";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
-function Cadastro() {
+function Cadastros() {
   const [tipo, setTipo] = useState("comum"); // padrão: comum
 
   // estados comuns
@@ -144,4 +144,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default Cadastros;

@@ -3,7 +3,7 @@ import React from "react";
 function CardTrailler({ titulo, genero, data, imagem }) {
   return (
     <div
-      className="relative w-72 h-96 rounded-xl overflow-hidden bg-black text-white shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300"
+      className="relative w-72 h-96 rounded-xl overflow-hidden bg-black text-white shadow-md hover:shadow-[2px_2px_10px_#afaf35,_-2px_-2px_10px_#afaf35] hover:shadow-xl hover:scale-105 transition-transform duration-300"
       style={{ backgroundImage: `url(${imagem})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Overlay semi-transparente */}
